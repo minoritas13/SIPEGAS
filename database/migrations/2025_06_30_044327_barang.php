@@ -17,6 +17,10 @@ return new class extends Migration
             $table->integer('stok_isi');
             $table->integer('stok_kosong');
             $table->integer('stok_bocor')->nullable();
+            $table->foreignId('user_id')->constrained(
+                table: 'users',
+                indexName: 'penerima_user_id'
+            );
             $table->timestamps();
         });
     }

@@ -19,9 +19,11 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
+        'is_admin',
+        'created_at'
     ];
 
     /**
@@ -30,7 +32,6 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 
@@ -50,5 +51,10 @@ class User extends Authenticatable
     public function notes(): HasMany
     {
         return $this->hasMany(Notes::class);
+    }
+
+    public function barang(): HasMany
+    {
+        return $this->hasMany(Barang::class);
     }
 }

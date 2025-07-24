@@ -14,16 +14,14 @@ class isLogin
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
         if (!Auth::check()) {
-            return redirect()->route('home');
-        }
-
-        if (Auth::user()->is_admin !== true) {
-            return abort(403, 'Akses hanya untuk admin.');
+            return redirect()->route('home')->with('error', 'Silakan login terlebih dahulu.');
         }
 
         return $next($request);
+
+        
     }
 }

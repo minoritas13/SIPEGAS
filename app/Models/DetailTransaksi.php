@@ -18,6 +18,7 @@ class DetailTransaksi extends Model
         'pembeli',
         'jumlah',
         'total',
+        'created_at',
     ];
 
     public function user(): BelongsTo

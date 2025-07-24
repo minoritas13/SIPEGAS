@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,7 +22,7 @@ class BarangFactory extends Factory
             'stok_isi' => fake()->numberBetween(1, 200),
             'stok_kosong' => fake()->numberBetween(1,200),
             'stok_bocor' => fake()->numberBetween(1,10),
-            
+            'user_id' => User::inRandomOrder()->first()->id,
         ];
     }
 }
