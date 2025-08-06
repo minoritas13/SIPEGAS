@@ -26,6 +26,7 @@ Route::middleware([isLogin::class])->group(function () {
 
     Route::get('/transaksi', [TransaksiController::class, 'index'])->name('showTransaksi');
     Route::post('/transaksi', [TransaksiController::class, 'store'])->name('TransaksiBarang');
+    Route::post('/transaksi', [TransaksiController::class, 'updateStatus'])->name('transaksiUpdateStatus');
 
     Route::post('/notes', [NotesController::class, 'store'])->name('CreateNotes');
 
@@ -35,4 +36,7 @@ Route::middleware([isLogin::class])->group(function () {
     Route::get('/pengguna', [PenggunaController::class, 'index'])->name('pengguna');
     Route::post('/pengguna', [PenggunaController::class, 'store'])->name('pengguna.store');
     Route::delete('/pengguna/{user}', [PenggunaController::class, 'destroy'])->name('pengguna.destroy');
+
+    
+
 });

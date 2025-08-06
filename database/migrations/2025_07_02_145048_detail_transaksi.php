@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-         Schema::create('detail_transaksi', function (Blueprint $table) {
+        Schema::create('detail_transaksi', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained(
                 table: 'users',
@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('pembeli');
             $table->integer('jumlah');
             $table->integer('total');
+            $table->boolean('status_pembayaran')->default(false);
             $table->timestamps();
         });
     }

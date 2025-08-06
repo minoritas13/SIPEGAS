@@ -18,6 +18,7 @@ class DetailTransaksi extends Model
         'pembeli',
         'jumlah',
         'total',
+        'status_pembayaran',
         'created_at',
     ];
 
